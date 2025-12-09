@@ -67,7 +67,9 @@ The agent would then explore the action space using an Epsilon-Greedy approach (
 An epsilon greedy approach is a function that determines whether the algorithm should choose the optimal choice based off it's current training (argmax $a_i$) or whether it should choose some other policy (random)
 to explore the action space (could there be a better action). The probability that it chooses a random policy is usually something low ~ 1/sqrt(n)
 
-$
+![Epsilon Greedy function](/epsilongreedy.png)
+
+<!-- $
 \text{Epsilon-Greedy} =
 \begin{cases}
 \arg\max a & \text{with probability } 1 - \epsilon,\\[2mm]
@@ -75,7 +77,7 @@ $
 \end{cases}
 \qquad
 \text{where } \epsilon = \frac{1}{\sqrt{n}},
-$
+$ -->
 
 I would feed the algorithm an episode: a defined sequence of varying workloads (specifically, the live system metrics produced from these workloads) each iteration.
 
@@ -264,7 +266,7 @@ I tried a variety of custom scripts that spawned new threads and forked to creat
 | 75%       |     0.965512  |
 | max       |     1.34343   |
 
-[VS Code demo](./vscodedemo.mov)
+[VS Code demo](./vscodedemo.mov) - *Make sure to look at the average turnaround time for each run in the postman response*
 
 The mean is of course interesting here. It is far lower with bpfland. However, I find it more interesting that the max of bpfland is as close to the average for CFS (~1.3s) but the 75th percentile and below is < 0.96s. The reverse also holds, the min for CFS is close to the average for bpfland but the 25th percentile and above is > 1.28s. This shows that bpfland certainly performs better in turnaround time compared to CFS as expected.
 
