@@ -41,7 +41,7 @@ Features (important ones for the readme are **bolded**):
 My original idea was to treat this as a classification problem. Based of the current system metrics scheduler A is the best Scheduler so switch to A.
 Began with the idea of creating a random set of workloads and running each scheduler on the random set. Then classified which scheduler was the best by how well it performed based on the following cost function:
     
-$L = (\text{turnaround time})_{\text{avg}} + (\text{response time})_{\text{avg}} + (\text{Coefficient of Variance Fairness})_{\text{avg}}$
+$L = (\mathrm{turnaround\ time})_{\mathrm{avg}} + (\mathrm{response\ time})_{\mathrm{avg}} + (\mathrm{Coefficient\ of\ Variance\ Fairness})_{\mathrm{avg}}$
 
 The best scheduler has the lowest cost
 
@@ -56,7 +56,7 @@ The best scheduler has the lowest cost
 
 The idea was some sort of dual layer hidden network that feeds into a softmax function to produce a vector of probabilities for the likelihood of the algorithm choosing a specific policy.
 
-$\text{softmax outputs } a = [a_1, a_2, a_3]$ (1 for each scheduling policy)
+$\mathrm{softmax\ outputs } a = [a_1, a_2, a_3]$ (1 for each scheduling policy)
 
 The reward would be a weighted cross-entropy function where the cost function L would be multiplied by the log of the probabilities and summed.
 
