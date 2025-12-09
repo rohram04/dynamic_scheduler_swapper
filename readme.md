@@ -78,7 +78,16 @@ An epsilon greedy approach is a function that determines whether the algorithm s
 \text{where } \epsilon = \frac{1}{\sqrt{n}},
 $ -->
 
-I would feed the algorithm an episode: a defined sequence of varying workloads (specifically, the live system metrics produced from these workloads) each iteration.
+I would feed the algorithm an episode: a defined sequence of varying workloads (specifically, the live system metrics produced from these workloads) each iteration, within an episode the agent acts calculates its reward and moves on to the next step (still within an episode). Here is an example of an episode:
+
+- Phase 1: CPU Intensive Task - 15s
+- Phase 2: IO Intentive Task - 10s
+- Phase 3: Memory and CPU intensive task - 20s
+- Phase 4: Memory swapping and fork intensive task - 10s
+- ...
+- Phase n: Workoad w - 5s
+
+These episodes would have random sequences and random workload phases within them. The idea behind this episode structure is to simulate a running computer - a continuous task (doing it in discrete steps allows us to calculate the cost metrics: average turnaround time, average response time, and CV Fairness after each step. These metrics cannot be collected live due to constraints outlined in the metric collection **aside**). It also gives the model small steps to process. It also turns out, from a well trained model, the sequence of the phases will not matter; The model simply learns based on the current system state what is the best scheduling policy for the future.
 
 ![Reinforcement Learning Loop](/reinforcementlearning.png)
 
