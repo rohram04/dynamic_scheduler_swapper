@@ -239,7 +239,7 @@ I tried a variety of custom scripts that spawned new threads and forked to creat
 
 **However** there was one situation in which I noticed bpfland had better results than CFS. This was when I remote accessed the bare metal server with remote ssh and ran the http server from vs code terminal (I did not observe the same results when I sshed and ran the http server from the mac terminal). This is consistent because bpfland is supposed to be better for interactive low latency tasks (ie vs code). Looking at the number of tasks from the perf trace, it is clear several short burst tasks are run and completed. My attempts above were to create a script that simulates what VSCode (or an interactive app) does however I was not able to do so.
 
-**bpfland with vscode running**
+**CFS with vscode running**
 | metrics   |   Average_TAT |
 |:----------|--------------:|
 | count     |    50         |
@@ -252,7 +252,7 @@ I tried a variety of custom scripts that spawned new threads and forked to creat
 | max       |     1.3172    |
 | nan       |   nan         |
 
-**CFS with vscode running**
+**bpfland with vscode running**
 | metrics   |   Average_TAT |
 |:----------|--------------:|
 | count     |    50         |
@@ -265,6 +265,8 @@ I tried a variety of custom scripts that spawned new threads and forked to creat
 | max       |     1.34343   |
 
 [VS Code demo](./vscodedemo.mov)
+
+The mean is of course interesting here. It is far lower with bpfland. However, I find it more interesting that the max of bpfland is as close to the average for CFS (~1.3s) but the 75th percentile and below is < 0.96s. The reverse also holds, the min for CFS is close to the average for bpfland but the 25th percentile and above is > 1.28s. This shows that bpfland certainly performs better in turnaround time compared to CFS as expected.
 
 ## Conclusion
 
