@@ -54,7 +54,7 @@ The best scheduler has the lowest cost
 
 **Reinforcement Learning**. I specifically wanted to implement a policy gradient algorithm (based off Professor Young Wu's advice)
 
-The idea was some sort of dual layer hidden network that feeds into a softmax function to produce a vector of probabilities for the likelihood of the algorithm choosing a specific policy.
+The idea was some sort of dual layer hidden network that feeds into a softmax function to produce a vector of probabilities: the probability of each policy being the optimal policy.
 
 softmax outputs $a = [a_1, a_2, a_3]$ (1 for each scheduling policy)
 
