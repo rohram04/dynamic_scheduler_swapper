@@ -1,7 +1,8 @@
 # Dynamic ML Scheduler Swapper
 
 ## Problem Statement/Task:
-    Build an agent that uses an ML model to swap a systems running scheduler based off it's live system metrics (CPU Load, Memory Load, etc)
+
+Build an agent that uses an ML model to swap a systems running scheduler based off it's live system metrics (CPU Load, Memory Load, etc)
 
 Features (important ones for the readme are **bolded**):
 
